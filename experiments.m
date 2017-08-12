@@ -1,12 +1,15 @@
+startup
+
 % specify your paths to the datasets
-dataset = {'VV' 'LIME' 'NPE' 'NPE-ex1' 'NPE-ex2' 'NPE-ex3' 'MEF' 'DICM'};
-dataset = strcat('data', filesep, dataset, filesep, '*.*');
+name = {'VV' 'LIME' 'NPE' 'NPE-ex1' 'NPE-ex2' 'NPE-ex3' 'MEF' 'DICM'};
+dataset = strcat('data', filesep, name, filesep, '*.*');
 
 % specify methods and metrics
 method = {@multiscaleRetinex @dong @npe @lime @mf @srie @BIMEF};
-metric = {@loe100x100 @vif};
+metric = {@loe100x100}; 
+% metric = {@loe100x100 @vif}; % NOTE matlabPyrTools is required to run VIF metric (vif.m).
 
-for d = dataset, data = d{1};
+for n = 1:numel(dataset); data = dataset{n};
     data,  
     Test = TestImage(data);        
     Test.Method = method; 
@@ -16,5 +19,5 @@ for d = dataset, data = d{1};
     Test,                     
     
     % save test to a .csv file
-    save(Test);
+    save(Test); % %save(Test, ['TestReport__' name{n} '.csv']);
 end

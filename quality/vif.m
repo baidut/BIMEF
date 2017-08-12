@@ -6,7 +6,7 @@ if nargin ==0
     fprintf('VIF(I, I) = %f while VIF(I, I./2) = %f, VIF(I./2, I) = %f\n',vif(I, I),vif(I, I./2),vif(I./2, I));
     return;
 end
-Require VIF
+Require VIF;
 
 if size(imorg, 3) == 3
     imorg = rgb2gray(imorg);

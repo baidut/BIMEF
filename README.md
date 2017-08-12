@@ -13,7 +13,7 @@ Code for our paper "A Bio-Inspired Multi-Exposure Fusion Framework for Low-light
   * Since some metrics are quite time-consuming, we also provide their results (`TestReport.zip`)
 * All the experiments can be reproduced easily by running `experiments.m`
 
-![tcyb2017_moreExamples](tcyb2017_moreExamples.jpg)
+![tcyb2017_moreExamples](example.jpg)
 
 From left to right: input images, results of MSRCR, Dong, NPE, LIME, MF, SRIE, and BIMEF(ours).
 
@@ -67,6 +67,8 @@ Replace `BIMEF` with other methods you want to test.
 
 ## Usage
 
+Run experiments.
+
 ```matlab
 % specify datasets
 dataset = {'VV' 'LIME' 'NPE' 'NPE-ex1' 'NPE-ex2' 'NPE-ex3' 'MEF' 'DICM'};
@@ -88,5 +90,11 @@ for d = dataset, data = d{1};
     % save test to a .csv file
     save(Test);
 end
+```
+
+Show test reports.
+
+```matlab
+TestReport('TestReport__VV.csv'),
 ```
 
