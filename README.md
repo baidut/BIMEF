@@ -95,6 +95,13 @@ end
 Show test reports.
 
 ```matlab
+% table
 TestReport('TestReport__VV.csv'),
+
+% boxplot
+TestReport('TestReport__MEF.csv').boxplot;
 ```
 
+Our method (BIMEF) has the lowest LOE and the highest VIF.
+
+![boxplot](boxplot.jpg)
